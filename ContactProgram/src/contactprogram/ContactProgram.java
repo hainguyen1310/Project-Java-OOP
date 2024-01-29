@@ -34,7 +34,13 @@ public class ContactProgram extends Menu {
                     String name = Utils.getString("Enter Name");
                     String group = Utils.getString("Enter Group");
                     String address = Utils.getString("Enter Address");
-                    String phone = Utils.getString("Enter Phone");
+                    String phone;
+                    do{
+                        phone = Utils.getString("Enter Phone");
+                        if (!isValidPhoneNumber(phone)) {
+                        System.out.println("Invalid Phone. Enter again!!!");
+                        }
+                    } while(!isValidPhoneNumber(phone));
                     cc.addContact(name, group, address, phone);
                     System.out.println("Successful");
                     break;
@@ -51,4 +57,9 @@ public class ContactProgram extends Menu {
                     break;
             }
         }
+        
+    private boolean isValidPhoneNumber(String phone) {
+            String phoneRegex = "^(\\d{10}|\\d{3}-\\d{3}-\\d{4}|\\(\\d{3}\\)-\\d{3}-\\d{4}|\\d{3}\\.\\d{3}\\.\\d{4}|\\d{3} \\d{3} \\d{4})( x\\d{1,4}| ext\\d{1,4})?$";
+            return phone.matches(phoneRegex);
+    }
 }
