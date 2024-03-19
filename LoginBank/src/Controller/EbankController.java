@@ -40,12 +40,12 @@ public class EbankController extends Menu{
     @Override
     public void execute(int n ){
         switch (n){
-            case 1:
-                login(localeVi);
-                break;
-            case 2:
-                login(localeEn);
-                break;
+//            case 1:
+//                login(localeVi);
+//                break;
+//            case 2:
+//                login(localeEn);
+//                break;
             default:
                 System.exit(0);
         }
